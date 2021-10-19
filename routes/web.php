@@ -54,6 +54,8 @@ Route::get('/get/all/ProductStock','ProductStockController@getAllStockInfo')->na
 Route::resource('UserAssigned','UserAssignedController');
 Route::get('/get/all/UserAssigned','UserAssignedController@getAllUserAssigned')->name('all.UserAssigned');
 
+Route::resource('LocationInfo','LocationInfoController');
+
 
 Route::get('DivisionInfo','LocationInfoController@viewDivisionInfo');
 Route::get('/get/all/DivisionInfo','LocationInfoController@getDivisionInfo')->name('all.viewDivisionInfo');
@@ -69,4 +71,5 @@ Route::get('/get/all/OutletInfo','LocationInfoController@getOutletInfo')->name('
 
 Route::post('/customer-login','CheckoutController@customerLogin');
 Route::post('ShowSubCategorie','ProductInfoController@showSubCat');
+Route::post('ShowDistrict','LocationInfoController@showSubOptions');
 Route::get('/customer-logout','CheckoutController@customerLogOut');

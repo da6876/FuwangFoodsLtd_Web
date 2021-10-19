@@ -10,28 +10,110 @@ use Session;
 
 class LocationInfoController extends Controller
 {
-    public function viewDivisionInfo(){
+    public function viewDivisionInfo()
+    {
         return view('configpage.location.division_info');
     }
 
-    public function viewDistrictInfo(){
+    public function viewDistrictInfo()
+    {
         return view('configpage.location.district_info');
     }
 
-    public function viewThanaInfo(){
+    public function viewThanaInfo()
+    {
         return view('configpage.location.thana_info');
     }
 
-    public function viewAreaInfo(){
+    public function viewAreaInfo()
+    {
         return view('configpage.location.area_info');
     }
 
-    public function viewOutletInfo(){
+    public function viewOutletInfo()
+    {
         return view('configpage.location.outlet_info');
     }
 
+    public function store(Request $request)
+    {
+        try {
+            $data = array();
+            $data['area_name'] = $request['area_name'];
+            $data['thana_id'] = $request['thana_id'];
+            $data['area_status'] = $request['status'];
 
-    public function getDivisionInfo(){
+            $result = DB::table('area_info')->insert($data);
+            return json_encode(array(
+                "statusCode" => 200,
+                "statusMsg" => "Area Added Successfully"
+            ));
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return json_encode(array(
+                "statusCode" => 230,
+                "statusMsg" => $e->getMessage()
+            ));
+        }
+
+
+    }
+
+    public function destroy($id)
+    {
+        try {
+            DB::table('area_info')
+                ->where('area_code', $id)
+                ->delete();
+            return json_encode(array(
+                "statusCode" => 200
+            ));
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return json_encode(array(
+                "statusCode" => 230,
+                "statusMsg" => $e->getMessage()
+            ));
+        }
+    }
+
+    public function showSubOptions()
+    {
+
+        $ViewType= request()->input('ViewType');
+
+        if ($ViewType=="GetSubDistrict"){
+            $div_id = request()->input('div_id');
+
+            try {
+                $categories_sub = DB::table('districts')
+                    ->where('division_id', $div_id)
+                    ->get();
+                return json_encode($categories_sub);
+            } catch (\Exception $e) {
+                DB::rollBack();
+                return ["o_status_message" => $e->getMessage()];
+            }
+
+        }elseif ($ViewType=="GetSubThana"){
+            $dis_id = request()->input('dis_id');
+
+            try {
+                $categories_sub = DB::table('upazilas')
+                    ->where('district_id', $dis_id)
+                    ->get();
+                return json_encode($categories_sub);
+            } catch (\Exception $e) {
+                DB::rollBack();
+                return ["o_status_message" => $e->getMessage()];
+            }
+
+        }
+
+    }
+
+    public function getDivisionInfo()
+    {
         $categories = DB::table('divisions')
             ->get();
 
@@ -39,9 +121,9 @@ class LocationInfoController extends Controller
             ->addColumn('action', function ($categories) {
                 $buttton = '
                 <div class="button-list">
-                    <a onclick="showcategoriesData('.$categories->id.')" role="button" href="#" class="btn btn-success btn-sm"><i class="fa fa-external-link-square bigfonts"></i></a>
-                    <a onclick="editcategoriesData('.$categories->id.')" role="button" href="#" class="btn btn-primary btn-sm"><i class="fa fa-edit bigfonts"></i></a>
-                    <a onclick="deletecategoriesData('.$categories->id.')" role="button" href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash-o bigfonts"></i></a>
+                    <a onclick="showcategoriesData(' . $categories->id . ')" role="button" href="#" class="btn btn-success btn-sm"><i class="fa fa-external-link-square bigfonts"></i></a>
+                    <a onclick="editcategoriesData(' . $categories->id . ')" role="button" href="#" class="btn btn-primary btn-sm"><i class="fa fa-edit bigfonts"></i></a>
+                    <a onclick="deletecategoriesData(' . $categories->id . ')" role="button" href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash-o bigfonts"></i></a>
                 </div>
                 ';
                 return $buttton;
@@ -50,7 +132,8 @@ class LocationInfoController extends Controller
             ->toJson();
     }
 
-    public function getDistrictInfo(){
+    public function getDistrictInfo()
+    {
         $categories = DB::table('districts')
             ->get();
 
@@ -58,9 +141,9 @@ class LocationInfoController extends Controller
             ->addColumn('action', function ($categories) {
                 $buttton = '
                 <div class="button-list">
-                    <a onclick="showcategoriesData('.$categories->id.')" role="button" href="#" class="btn btn-success btn-sm"><i class="fa fa-external-link-square bigfonts"></i></a>
-                    <a onclick="editcategoriesData('.$categories->id.')" role="button" href="#" class="btn btn-primary btn-sm"><i class="fa fa-edit bigfonts"></i></a>
-                    <a onclick="deletecategoriesData('.$categories->id.')" role="button" href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash-o bigfonts"></i></a>
+                    <a onclick="showcategoriesData(' . $categories->id . ')" role="button" href="#" class="btn btn-success btn-sm"><i class="fa fa-external-link-square bigfonts"></i></a>
+                    <a onclick="editcategoriesData(' . $categories->id . ')" role="button" href="#" class="btn btn-primary btn-sm"><i class="fa fa-edit bigfonts"></i></a>
+                    <a onclick="deletecategoriesData(' . $categories->id . ')" role="button" href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash-o bigfonts"></i></a>
                 </div>
                 ';
                 return $buttton;
@@ -69,7 +152,8 @@ class LocationInfoController extends Controller
             ->toJson();
     }
 
-    public function getThanaInfo(){
+    public function getThanaInfo()
+    {
         $categories = DB::table('upazilas')
             ->get();
 
@@ -77,9 +161,9 @@ class LocationInfoController extends Controller
             ->addColumn('action', function ($categories) {
                 $buttton = '
                 <div class="button-list">
-                    <a onclick="showcategoriesData('.$categories->id.')" role="button" href="#" class="btn btn-success btn-sm"><i class="fa fa-external-link-square bigfonts"></i></a>
-                    <a onclick="editcategoriesData('.$categories->id.')" role="button" href="#" class="btn btn-primary btn-sm"><i class="fa fa-edit bigfonts"></i></a>
-                    <a onclick="deletecategoriesData('.$categories->id.')" role="button" href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash-o bigfonts"></i></a>
+                    <a onclick="showcategoriesData(' . $categories->id . ')" role="button" href="#" class="btn btn-success btn-sm"><i class="fa fa-external-link-square bigfonts"></i></a>
+                    <a onclick="editcategoriesData(' . $categories->id . ')" role="button" href="#" class="btn btn-primary btn-sm"><i class="fa fa-edit bigfonts"></i></a>
+                    <a onclick="deletecategoriesData(' . $categories->id . ')" role="button" href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash-o bigfonts"></i></a>
                 </div>
                 ';
                 return $buttton;
@@ -88,7 +172,8 @@ class LocationInfoController extends Controller
             ->toJson();
     }
 
-    public function getAreaInfo(){
+    public function getAreaInfo()
+    {
         $categories = DB::table('area_info')
             ->get();
 
@@ -96,9 +181,7 @@ class LocationInfoController extends Controller
             ->addColumn('action', function ($categories) {
                 $buttton = '
                 <div class="button-list">
-                    <a onclick="showcategoriesData('.$categories->area_code.')" role="button" href="#" class="btn btn-success btn-sm"><i class="fa fa-external-link-square bigfonts"></i></a>
-                    <a onclick="editcategoriesData('.$categories->area_code.')" role="button" href="#" class="btn btn-primary btn-sm"><i class="fa fa-edit bigfonts"></i></a>
-                    <a onclick="deletecategoriesData('.$categories->area_code.')" role="button" href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash-o bigfonts"></i></a>
+                    <a onclick="deleteAreaData(' . $categories->area_code . ')" role="button" href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash-o bigfonts"></i></a>
                 </div>
                 ';
                 return $buttton;
@@ -107,7 +190,8 @@ class LocationInfoController extends Controller
             ->toJson();
     }
 
-    public function getOutletInfo(){
+    public function getOutletInfo()
+    {
         $categories = DB::table('outlet_info')
             ->get();
 
@@ -115,9 +199,9 @@ class LocationInfoController extends Controller
             ->addColumn('action', function ($categories) {
                 $buttton = '
                 <div class="button-list">
-                    <a onclick="showcategoriesData('.$categories->outlet_id.')" role="button" href="#" class="btn btn-success btn-sm"><i class="fa fa-external-link-square bigfonts"></i></a>
-                    <a onclick="editcategoriesData('.$categories->outlet_id.')" role="button" href="#" class="btn btn-primary btn-sm"><i class="fa fa-edit bigfonts"></i></a>
-                    <a onclick="deletecategoriesData('.$categories->outlet_id.')" role="button" href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash-o bigfonts"></i></a>
+                    <a onclick="showcategoriesData(' . $categories->outlet_id . ')" role="button" href="#" class="btn btn-success btn-sm"><i class="fa fa-external-link-square bigfonts"></i></a>
+                    <a onclick="editcategoriesData(' . $categories->outlet_id . ')" role="button" href="#" class="btn btn-primary btn-sm"><i class="fa fa-edit bigfonts"></i></a>
+                    <a onclick="deletecategoriesData(' . $categories->outlet_id . ')" role="button" href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash-o bigfonts"></i></a>
                 </div>
                 ';
                 return $buttton;

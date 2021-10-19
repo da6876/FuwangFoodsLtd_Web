@@ -28,8 +28,7 @@ class ProductStockController extends Controller
     }
 
 
-    public function store(Request $request)
-    {
+    public function store(Request $request){
         $data = array();
         $data['batch_no'] = $request['batch_no'];
         $data['product_id'] = $request['product_id'];

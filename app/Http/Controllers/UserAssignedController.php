@@ -66,9 +66,9 @@ class UserAssignedController extends Controller
     {
 
         $categories_sub = DB::select("SELECT user_assigned_id, user_name ,area_code,ZI.zip_name ,user_assigned_status, UA.create_info, UA.update_info
-FROM user_assigned UA, user_info UI,zip_info ZI
-WHERE UA.user_info_id = UI.user_info_id
-AND UA.area_code = ZI.zip_id");
+                            FROM user_assigned UA, user_info UI,zip_info ZI
+                            WHERE UA.user_info_id = UI.user_info_id
+                            AND UA.area_code = ZI.zip_id");
 
         return DataTables::of($categories_sub)
             ->addColumn('action', function ($categories_sub) {

@@ -4,9 +4,11 @@
     <list default="true" id="bbef82e9-cb50-49a5-97fb-cc0a2e74f945" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LocationInfoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LocationInfoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductStockController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductStockController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/configpage/location/area_info.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/configpage/location/area_info.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserAssignedController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserAssignedController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/configpage/location/district_info.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/configpage/location/district_info.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/configpage/location/division_info.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/configpage/location/division_info.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/configpage/location/thana_info.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/configpage/location/thana_info.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/configpage/user_assigned.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/configpage/user_assigned.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,7 +27,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
+            <state>
               <caret line="73" column="50" selection-start-line="73" selection-start-column="50" selection-end-line="73" selection-end-column="50" />
               <folding>
                 <element signature="e#7#389#0#PHP" expanded="true" />
@@ -35,10 +37,25 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserAssignedController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="138">
+              <caret line="68" column="28" selection-start-line="68" selection-start-column="28" selection-end-line="70" selection-end-column="44" />
+              <folding>
+                <element signature="e#40#68#0#PHP" expanded="true" />
+                <element signature="e#420#996#0#PHP" />
+                <element signature="e#1003#1191#0#PHP" />
+                <element signature="e#1198#1420#0#PHP" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LocationInfoController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="102" column="40" selection-start-line="102" selection-start-column="40" selection-end-line="102" selection-end-column="40" />
+            <state relative-caret-position="413">
+              <caret line="102" column="40" selection-start-line="102" selection-start-column="29" selection-end-line="102" selection-end-column="40" />
               <folding>
                 <element signature="e#40#68#0#PHP" expanded="true" />
                 <element signature="e#179#283#0#PHP" />
@@ -46,28 +63,32 @@
                 <element signature="e#399#497#0#PHP" />
                 <element signature="e#503#599#0#PHP" />
                 <element signature="e#605#705#0#PHP" />
-                <element signature="e#1399#1748#0#PHP" />
-                <element signature="e#1374#2343#0#PHP" />
-                <element signature="e#2349#3318#0#PHP" />
-                <element signature="e#3324#4289#0#PHP" />
+                <element signature="e#711#1393#0#PHP" />
+                <element signature="e#1399#1859#0#PHP" />
+                <element signature="e#2882#3851#0#PHP" />
+                <element signature="e#3857#4826#0#PHP" />
+                <element signature="e#4832#5797#0#PHP" />
+                <element signature="e#5803#6411#0#PHP" />
+                <element signature="e#6417#7407#0#PHP" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/configpage/location/area_info.blade.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductInfoController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="348" column="42" selection-start-line="348" selection-start-column="42" selection-end-line="348" selection-end-column="42" />
+            <state relative-caret-position="498">
+              <caret line="148" column="5" lean-forward="true" selection-start-line="128" selection-start-column="4" selection-end-line="148" selection-end-column="5" />
               <folding>
-                <element signature="e#10118#10594#0#HTML" />
-                <element signature="e#12123#13360#0#HTML" />
-                <element signature="e#13436#15285#0#HTML" />
-                <element signature="e#13852#14065#0#HTML" />
-                <element signature="e#14111#15438#0#HTML" />
-                <element signature="e#15375#15516#0#HTML" />
-                <element signature="e#15558#16835#0#HTML" />
+                <element signature="e#40#68#0#PHP" expanded="true" />
+                <element signature="e#179#418#0#PHP" />
+                <element signature="e#425#2446#0#PHP" />
+                <element signature="e#2453#2634#0#PHP" />
+                <element signature="e#2641#2689#0#PHP" />
+                <element signature="e#2696#2764#0#PHP" />
+                <element signature="e#2771#2986#0#PHP" />
+                <element signature="e#2992#3971#0#PHP" />
               </folding>
             </state>
           </provider>
@@ -163,15 +184,15 @@
         <option value="$PROJECT_DIR$/resources/views/layouts/header_bar.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/left_main_sidebar.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/configpage/product_stock.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ProductStockController.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/resources/views/configpage/location/area_info.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/UserAssignedController.php" />
         <option value="$PROJECT_DIR$/resources/views/configpage/user_assigned.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/configpage/location/division_info.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/configpage/location/district_info.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/configpage/location/thana_info.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/ProductStockController.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/LocationInfoController.php" />
-        <option value="$PROJECT_DIR$/resources/views/configpage/location/area_info.blade.php" />
       </list>
     </option>
   </component>
@@ -428,17 +449,19 @@
       <workItem from="1634448800006" duration="14943000" />
       <workItem from="1634624705904" duration="530000" />
       <workItem from="1634631726270" duration="7673000" />
+      <workItem from="1634647597622" duration="701000" />
+      <workItem from="1634651543482" duration="1585000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100826000" />
+    <option name="totallyTimeSpent" value="103112000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20196672" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20801815" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -649,38 +672,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/configpage/location/division_info.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="174" column="56" selection-start-line="174" selection-start-column="56" selection-end-line="174" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/configpage/location/district_info.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="175" column="56" selection-start-line="175" selection-start-column="56" selection-end-line="175" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/configpage/category.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="549">
           <caret line="83" column="96" selection-start-line="83" selection-start-column="96" selection-end-line="84" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/configpage/user_assigned.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1479">
-          <caret line="87" column="64" selection-start-line="87" selection-start-column="64" selection-end-line="87" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/configpage/location/thana_info.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2941">
-          <caret line="173" column="54" selection-start-line="173" selection-start-column="54" selection-end-line="173" selection-end-column="54" />
         </state>
       </provider>
     </entry>
@@ -693,16 +688,6 @@
             <element signature="e#175#412#0#PHP" />
             <element signature="e#419#466#0#PHP" />
             <element signature="e#473#2422#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserAssignedController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1139">
-          <caret line="67" column="117" selection-start-line="67" selection-start-column="97" selection-end-line="67" selection-end-column="117" />
-          <folding>
-            <element signature="e#40#68#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -748,13 +733,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/configpage/location/area_info.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="348" column="42" selection-start-line="348" selection-start-column="42" selection-end-line="348" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
+        <state>
           <caret line="73" column="50" selection-start-line="73" selection-start-column="50" selection-end-line="73" selection-end-column="50" />
           <folding>
             <element signature="e#7#389#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/configpage/user_assigned.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="104" column="131" selection-start-line="104" selection-start-column="131" selection-end-line="104" selection-end-column="131" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/configpage/location/division_info.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="225" selection-start-line="225" selection-end-line="225" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/configpage/location/district_info.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="224" column="31" selection-start-line="224" selection-start-column="31" selection-end-line="224" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/configpage/location/thana_info.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="224" column="52" selection-start-line="224" selection-start-column="52" selection-end-line="224" selection-end-column="52" />
         </state>
       </provider>
     </entry>
@@ -775,10 +795,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserAssignedController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="68" column="28" selection-start-line="68" selection-start-column="28" selection-end-line="70" selection-end-column="44" />
+          <folding>
+            <element signature="e#40#68#0#PHP" expanded="true" />
+            <element signature="e#420#996#0#PHP" />
+            <element signature="e#1003#1191#0#PHP" />
+            <element signature="e#1198#1420#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LocationInfoController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="102" column="40" selection-start-line="102" selection-start-column="40" selection-end-line="102" selection-end-column="40" />
+        <state relative-caret-position="413">
+          <caret line="102" column="40" selection-start-line="102" selection-start-column="29" selection-end-line="102" selection-end-column="40" />
           <folding>
             <element signature="e#40#68#0#PHP" expanded="true" />
             <element signature="e#179#283#0#PHP" />
@@ -786,26 +819,13 @@
             <element signature="e#399#497#0#PHP" />
             <element signature="e#503#599#0#PHP" />
             <element signature="e#605#705#0#PHP" />
-            <element signature="e#1399#1748#0#PHP" />
-            <element signature="e#1374#2343#0#PHP" />
-            <element signature="e#2349#3318#0#PHP" />
-            <element signature="e#3324#4289#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/configpage/location/area_info.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="348" column="42" selection-start-line="348" selection-start-column="42" selection-end-line="348" selection-end-column="42" />
-          <folding>
-            <element signature="e#10118#10594#0#HTML" />
-            <element signature="e#12123#13360#0#HTML" />
-            <element signature="e#13436#15285#0#HTML" />
-            <element signature="e#13852#14065#0#HTML" />
-            <element signature="e#14111#15438#0#HTML" />
-            <element signature="e#15375#15516#0#HTML" />
-            <element signature="e#15558#16835#0#HTML" />
+            <element signature="e#711#1393#0#PHP" />
+            <element signature="e#1399#1859#0#PHP" />
+            <element signature="e#2882#3851#0#PHP" />
+            <element signature="e#3857#4826#0#PHP" />
+            <element signature="e#4832#5797#0#PHP" />
+            <element signature="e#5803#6411#0#PHP" />
+            <element signature="e#6417#7407#0#PHP" />
           </folding>
         </state>
       </provider>

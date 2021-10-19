@@ -174,7 +174,6 @@
                                             <th>Dis ID</th>
                                             <th>Name</th>
                                             <th>Name BNG</th>
-                                            <th>Website</th>
                                             <th>Action</th>
                                         </tr>
                                         </thead>
@@ -226,7 +225,6 @@
             {data: 'district_id', name: 'district_id'},
             {data: 'name', name: 'name'},
             {data: 'bn_name', name: 'bn_name'},
-            {data: 'url', name: 'url'},
             {data: 'action', name: 'action', orderable: false, searchable: false}
         ]
     });

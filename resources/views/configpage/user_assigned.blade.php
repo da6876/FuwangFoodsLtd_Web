@@ -79,7 +79,7 @@
                                         @php
                                             $all_user_info = DB::table('user_info')
                                                 ->get();
-                                            $all_zip_info = DB::table('zip_info')
+                                            $all_zip_info = DB::table('area_info')
                                                 ->get();
                                             $all_db_point_info = DB::table('db_point_info')
                                                 ->get();
@@ -102,7 +102,7 @@
                                                     <label>Area Info</label>
                                                     <select class="form-control zip_id-select-multiple" id="Area_Info" name="zip_id[]" multiple="multiple">
                                                         @foreach($all_zip_info as $all_zip_info)
-                                                            <option value="{{$all_zip_info->zip_id}}">{{$all_zip_info->zip_name}}
+                                                            <option value="{{$all_zip_info->area_code}}">{{$all_zip_info->area_name}}
                                                             </option>
                                                         @endforeach
                                                     </select>

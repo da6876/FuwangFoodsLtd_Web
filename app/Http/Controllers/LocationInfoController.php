@@ -86,7 +86,7 @@ class LocationInfoController extends Controller
             $div_id = request()->input('div_id');
 
             try {
-                $categories_sub = DB::table('districts')
+                $categories_sub = DB::table('soc_districts')
                     ->where('division_id', $div_id)
                     ->get();
                 return json_encode($categories_sub);
@@ -95,7 +95,7 @@ class LocationInfoController extends Controller
                 return ["o_status_message" => $e->getMessage()];
             }
 
-        }elseif ($ViewType=="GetSubThana"){
+        }elseif ($ViewType=="soc_thana"){
             $dis_id = request()->input('dis_id');
 
             try {
@@ -114,7 +114,7 @@ class LocationInfoController extends Controller
 
     public function getDivisionInfo()
     {
-        $categories = DB::table('divisions')
+        $categories = DB::table('soc_division')
             ->get();
 
         return DataTables::of($categories)
@@ -134,7 +134,7 @@ class LocationInfoController extends Controller
 
     public function getDistrictInfo()
     {
-        $categories = DB::table('districts')
+        $categories = DB::table('soc_districts')
             ->get();
 
         return DataTables::of($categories)
@@ -154,7 +154,7 @@ class LocationInfoController extends Controller
 
     public function getThanaInfo()
     {
-        $categories = DB::table('upazilas')
+        $categories = DB::table('soc_thana')
             ->get();
 
         return DataTables::of($categories)

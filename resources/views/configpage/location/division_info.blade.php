@@ -173,7 +173,6 @@
                                             <th>Id</th>
                                             <th>Name</th>
                                             <th>Name BNG</th>
-                                            <th>Website</th>
                                             <th>Action</th>
                                         </tr>
                                         </thead>
@@ -224,7 +223,6 @@
             {data: 'id', name: 'id'},
             {data: 'name', name: 'div_name'},
             {data: 'bn_name', name: 'bn_name'},
-            {data: 'url', name: 'url'},
             {data: 'action', name: 'action', orderable: false, searchable: false}
         ]
     });

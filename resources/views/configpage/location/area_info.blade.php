@@ -85,7 +85,7 @@
                                                 {{csrf_field()}}
                                                 <div class="modal-body">
                                                     @php
-                                                        $all_divisions = DB::table('divisions')
+                                                        $all_divisions = DB::table('soc_division')
                                                             ->get();
                                                     @endphp
                                                     <div class="row">

@@ -86,23 +86,23 @@ class LocationInfoController extends Controller
             $div_id = request()->input('div_id');
 
             try {
-                $categories_sub = DB::table('soc_districts')
+                $districts = DB::table('soc_districts')
                     ->where('division_id', $div_id)
                     ->get();
-                return json_encode($categories_sub);
+                return json_encode($districts);
             } catch (\Exception $e) {
                 DB::rollBack();
                 return ["o_status_message" => $e->getMessage()];
             }
 
-        }elseif ($ViewType=="soc_thana"){
+        }elseif ($ViewType=="GetSubThana"){
             $dis_id = request()->input('dis_id');
 
             try {
-                $categories_sub = DB::table('upazilas')
+                $thana = DB::table('soc_thana')
                     ->where('district_id', $dis_id)
                     ->get();
-                return json_encode($categories_sub);
+                return json_encode($thana);
             } catch (\Exception $e) {
                 DB::rollBack();
                 return ["o_status_message" => $e->getMessage()];

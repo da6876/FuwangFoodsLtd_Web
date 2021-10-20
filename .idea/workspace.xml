@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bbef82e9-cb50-49a5-97fb-cc0a2e74f945" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LocationInfoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LocationInfoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/configpage/location/area_info.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/configpage/location/area_info.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -413,12 +410,12 @@
       <workItem from="1634631726270" duration="7673000" />
       <workItem from="1634647597622" duration="701000" />
       <workItem from="1634651543482" duration="1585000" />
-      <workItem from="1634709406533" duration="3382000" />
+      <workItem from="1634709406533" duration="4245000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106494000" />
+    <option name="totallyTimeSpent" value="107357000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />

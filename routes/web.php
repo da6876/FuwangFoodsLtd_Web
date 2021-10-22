@@ -54,6 +54,10 @@ Route::get('/get/all/ProductStock','ProductStockController@getAllStockInfo')->na
 Route::resource('UserAssigned','UserAssignedController');
 Route::get('/get/all/UserAssigned','UserAssignedController@getAllUserAssigned')->name('all.UserAssigned');
 
+Route::resource('OutletOrder','OutletOrderInfoController');
+Route::post('ShowOrderNumberByUser','OutletOrderInfoController@showOrderInfo');
+Route::get('/get/all/OutletOrder','UserAssignedController@getAllOutletOrder')->name('all.OutletOrder');
+
 Route::resource('LocationInfo','LocationInfoController');
 
 

@@ -56,7 +56,7 @@ $route = Route::current()->getName();
                 <li class="submenu">
                     <a href="#" class=""><i class="fa fa-tags bigfonts"></i> <span>Order Manage </span> <span class="menu-arrow"></span></a>
                     <ul class="list-unstyled" >
-                        <li class=""><a href="#"><i class="fa fa-tag bigfonts"></i> Outlet Order</a></li>
+                        <li class=""><a href="{{url('OutletOrder')}}"><i class="fa fa-tag bigfonts"></i> Outlet Order</a></li>
                         <li class=""><a href="#"><i class="fa fa-tags bigfonts"></i> Distributor Order</a></li>
                     </ul>
                 </li>

@@ -65,10 +65,10 @@ class UserAssignedController extends Controller
     public function getAllUserAssigned()
     {
 
-        $categories_sub = DB::select("SELECT user_assigned_id, user_name ,area_code,ZI.zip_name ,user_assigned_status, UA.create_info, UA.update_info
-                            FROM user_assigned UA, user_info UI,zip_info ZI
-                            WHERE UA.user_info_id = UI.user_info_id
-                            AND UA.area_code = ZI.zip_id");
+        $categories_sub = DB::select("SELECT user_assigned_id, AI.area_name, user_assigned_status,UI.user_name
+                                        FROM area_info AI,user_assigned UA,user_info UI
+                                        WHERE AI.area_code = UA.area_code
+                                        AND UI.user_info_id =  UA.user_info_id");
 
         return DataTables::of($categories_sub)
             ->addColumn('action', function ($categories_sub) {

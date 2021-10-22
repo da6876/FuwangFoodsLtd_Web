@@ -227,7 +227,7 @@
         ajax: '{!! route('all.UserAssigned') !!}',
         columns: [
             {data: 'user_name', name: 'user_name'},
-            {data: 'zip_name', name: 'zip_name'},
+            {data: 'area_name', name: 'area_name'},
             {data: 'user_assigned_status', name: 'user_assigned_status'},
             {data: 'action', name: 'action', orderable: false, searchable: false}
         ]
@@ -248,7 +248,7 @@
                 if (dataResult.statusCode == 200) {
                     swal("Success", "User Assidend Success");
                     $('#UserAssigend-dataTabel').DataTable().ajax.reload();
-                    $('#addNewSubCategories').trigger("reset");
+                    $('#addUserAssigendFrom').trigger("reset");
                     $("#Area_Info").select2('val', 'All');
                 } else if (dataResult.statusCode == 201) {
                     swal({

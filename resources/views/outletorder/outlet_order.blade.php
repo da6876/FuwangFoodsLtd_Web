@@ -134,7 +134,7 @@
 
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered" id="ProductStock-dataTabel" width="100%"
+                                    <table class="table table-bordered" id="ProductStock" width="100%"
                                            cellspacing="0">
                                         <thead>
                                         <tr>
@@ -142,13 +142,13 @@
                                             <th>Batch No</th>
                                             <th>Product Name</th>
                                             <th>Qnty</th>
-                                            <th>Production Date</th>
-                                            <th>Expiry Date</th>
-                                            <th>User ID</th>
-                                            <th>Status</th>
+                                            <th>Qnty</th>
                                             <th>Action</th>
                                         </tr>
                                         </thead>
+                                        <tbody id="bodyData">
+
+                                        </tbody>
                                     </table>
                                 </div>
 
@@ -196,23 +196,7 @@
 
 
 <script>
-    //Show Data useign Yajratable
-    var table1 = $('#ProductStock-dataTabel').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: '{!! route('all.ProductStock') !!}',
-        columns: [
-            {data: 'product_stock_id', name: 'product_stock_id'},
-            {data: 'batch_no', name: 'batch_no'},
-            {data: 'product_name', name: 'product_name'},
-            {data: 'qnty', name: 'qnty'},
-            {data: 'production_date', name: 'production_date'},
-            {data: 'expiry_date', name: 'expiry_date'},
-            {data: 'user_id', name: 'user_id'},
-            {data: 'product_stock_status', name: 'product_stock_status'},
-            {data: 'action', name: 'action', orderable: false, searchable: false}
-        ]
-    });
+
 
     $("#user_info_id").change(function () {
         var user_info_id = $('#user_info_id :selected').val();
@@ -229,12 +213,11 @@
             data: {'ViewType': 'OrderInfo', 'user_id': user_info_id, "_token": csrf_tokens},
             datatype: 'JSON',
             success: function (data) {
-                console.log(data);
                 var sub_cat = $.parseJSON(data);
                 if (sub_cat != '') {
                     var markup = "<option value=''>Select Order Nuber</option>";
                     for (var x = 0; x < sub_cat.length; x++) {
-                        markup += "<option value=" + sub_cat[x].order_info_id + ">" + sub_cat[x].order_info_id + "</option>";
+                        markup += "<option value=" + sub_cat[x].order_info_id + ">"+sub_cat[x].shop_name+"- Date : "+ sub_cat[x].order_date+ " (" + sub_cat[x].order_info_id +")"+ "</option>";
                     }
                     $("#order_info_id").html(markup).show();
                 } else {
@@ -255,7 +238,67 @@
             }
         });
     }
+
+    function  addProductStock() {
+        var user_info_id = $('#user_info_id :selected').val();
+        var order_info_id = $('#order_info_id :selected').val();
+        $('#ProductStock tbody').empty();
+        searchOrderDetails(user_info_id,order_info_id);
+    }
+
+    function searchOrderDetails(user_info_id,order_info_id){
+        var csrf_tokens = document.querySelector('meta[name="csrf-token"]').content;
+        url = "{{ url('ShowOrderDetails') }}";
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: {'ViewType': 'OrderDetails', 'user_id': user_info_id,'order_info_id': order_info_id, "_token": csrf_tokens},
+            datatype: 'JSON',
+            success: function (data) {
+                console.log(data);
+                var resultData = $.parseJSON(data);
+
+                var bodyData = '';
+
+                for (var x = 0; x < resultData.length; x++) {
+                    bodyData += "<tr>"
+                    bodyData += "<td>" + resultData[x].product_id + "</td>" +
+                        "<td>" + resultData[x].product_id + "</td>" +
+                        "<td>" + resultData[x].order_qnty + "</td>" +
+                        "<td>" + resultData[x].order_rate + "</td>" +
+                        "<td>" + resultData[x].order_amount + "</td>" +
+                        "<td>" +
+                        "<button class='btn btn-info btn-sm delete ' style='margin-left:20px;' onclick='deleteOrder(" + resultData[x].product_id + ")'>Edit</button>" +
+                        "<button class='btn btn-danger btn-sm delete ' style='margin-left:20px;' onclick='deleteOrder(" + resultData[x].product_id + ")'>Delete</button>" +
+                        "</td>";
+                    bodyData += "</tr>";
+
+                }
+                $("#bodyData").append(bodyData);
+
+            },
+            error: function (data) {
+                console.log(data);
+                swal({
+                    title: "Oops",
+                    text: "Some Thing Is .... !!",
+                    icon: "error",
+                    timer: '1500'
+                });
+            }
+        });
+    }
+
+    function deleteOrder(product_id){
+        alert(product_id);
+    }
+
+/*    $(document).on("click", ".delete", function() {
+        alert("aaaa");
+    });*/
+
 </script>
+
 <!-- END Java Script for this page -->
 
 </body>

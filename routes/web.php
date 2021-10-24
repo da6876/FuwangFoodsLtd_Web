@@ -56,6 +56,7 @@ Route::get('/get/all/UserAssigned','UserAssignedController@getAllUserAssigned')-
 
 Route::resource('OutletOrder','OutletOrderInfoController');
 Route::post('ShowOrderNumberByUser','OutletOrderInfoController@showOrderInfo');
+Route::post('ShowOrderDetails','OutletOrderInfoController@showOrderDetails');
 Route::get('/get/all/OutletOrder','UserAssignedController@getAllOutletOrder')->name('all.OutletOrder');
 
 Route::resource('LocationInfo','LocationInfoController');

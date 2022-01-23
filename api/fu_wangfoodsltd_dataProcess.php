@@ -217,8 +217,8 @@ if ($conn->connect_error) {
         $order_trck = generateRandomString();
         $db_point_id = $_POST['db_point_id'];
         $user_info_id = $_POST['user_info_id'];
-        $order_date = $_POST['order_date'];
-        $order_time = $_POST['order_time'];
+        $order_date = getDates();
+        $order_time = getTime();
         $latitude = $_POST['latitude'];
         $longitude = $_POST['longitude'];
         $OrderDetails = $_POST['OrderDetails'];
@@ -322,6 +322,29 @@ if ($conn->connect_error) {
         mysqli_close($conn);
     }
 
+    elseif($Type == "Get Order History"){
+        $user_info_id = $_POST['user_info_id'];
+        $order_date_from = $_POST['order_date_from'];
+        $order_date_to = $_POST['order_date_to'];
+
+        $checkSql = "SELECT OIM.order_info_id, OIM.order_trck, OIM.db_point_id, OIM.db_point_image, OIM.user_info_id,
+                            OIM.order_date, OIM.order_time, OIM.latitude, OIM.longitude, OIM.create_info, OIM.update_info,
+                            DPI.shop_name, DPI.shop_own_name, DPI.mobile_no
+                            FROM order_info_mst OIM,db_point_info DPI
+                            WHERE OIM.db_point_id = DPI.db_point_id
+                            AND OIM.user_info_id = '$user_info_id'
+                            AND OIM.order_date BETWEEN '$order_date_from' AND '$order_date_to';";
+
+        $result1 = $conn->query($checkSql);
+
+        if ($result1->num_rows > 0) {
+            while ($row = $result1->fetch_assoc()) {
+                $post_data [] = $row;
+            }
+        }
+
+    }
+
 }
 
 
@@ -334,7 +357,7 @@ function getDates()
 {
     $Date = "";
     date_default_timezone_set("Asia/Dhaka");
-    return $Date = date("Y/m/d");
+    return $Date = date("d/m/Y");
 }
 
 function getTime()
@@ -349,7 +372,7 @@ function getDateTime()
 {
     $Date = "";
     date_default_timezone_set("Asia/Dhaka");
-    $Date = date("Y/m/d");
+    $Date = date("d/m/Y");
     $Time = date("H:i:s");
     return $Date = $Date . ',' . $Time;
 }

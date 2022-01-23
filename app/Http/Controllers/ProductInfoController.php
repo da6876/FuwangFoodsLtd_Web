@@ -40,28 +40,28 @@ class ProductInfoController extends Controller
             $data['mrp_unit'] = $request['mrp_unit'];
             $data['product_sku_code'] = $request['product_sku_code'];
             $data['product_status'] = $request['product_status'];
-            $data['create_by'] ="Static";
+            $data['create_by'] = "Static";
 
-            $image_one=$request['product_image'];
-            if ($image_one){
-                $ran_one=str_random(10);
-                $ext_one=strtolower($image_one->getClientOriginalExtension());
-                $one_full_name=$ran_one.$ext_one;
-                $upload_path_one="allImages/ProductImages/";
-                $image_url_one=$upload_path_one.$one_full_name;
-                $success_one=$image_one->move($upload_path_one,$one_full_name);
+            $image_one = $request['product_image'];
+            if ($image_one) {
+                $ran_one = str_random(10);
+                $ext_one = strtolower($image_one->getClientOriginalExtension());
+                $one_full_name = $ran_one . $ext_one;
+                $upload_path_one = "allImages/ProductImages/";
+                $image_url_one = $upload_path_one . $one_full_name;
+                $success_one = $image_one->move($upload_path_one, $one_full_name);
 
-                $data['product_image']=$image_url_one;
+                $data['product_image'] = $image_url_one;
                 $result = DB::table('product_info')->insert($data);
                 return json_encode(array(
-                    "statusCode"=>200,
-                    "statusMsg"=>"New Product Added Successfully"
+                    "statusCode" => 200,
+                    "statusMsg" => "New Product Added Successfully"
                 ));
-            }else{
+            } else {
 
                 return json_encode(array(
-                    "statusCode"=>201,
-                    "statusMsg"=>"Please Select Product Image !!"
+                    "statusCode" => 201,
+                    "statusMsg" => "Please Select Product Image !!"
                 ));
             }
         } catch (\Exception $e) {
@@ -105,46 +105,50 @@ class ProductInfoController extends Controller
 
     public function getAllProductInfo()
     {
+        try {
+            $categories = DB::table('product_info')
+                ->get();
 
-        $categories = DB::table('product_info')
-            ->get();
-
-        return DataTables::of($categories)
-            ->addColumn('action', function ($categories) {
-                $buttton = '
+            return DataTables::of($categories)
+                ->addColumn('action', function ($categories) {
+                    $buttton = '
                 <div class="button-list">
-                    <a onclick="showProductData('.$categories->product_id.')" role="button" href="#" class="btn btn-success btn-sm"><i class="fa fa-external-link-square bigfonts"></i></a>
-                    <a onclick="editProductData('.$categories->product_id.')" role="button" href="#" class="btn btn-primary btn-sm"><i class="fa fa-edit bigfonts"></i></a>
-                    <a onclick="deleteProductData('.$categories->product_id.')" role="button" href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash-o bigfonts"></i></a>
+                    <a onclick="showProductData(' . $categories->product_id . ')" role="button" href="#" class="btn btn-success btn-sm"><i class="fa fa-external-link-square bigfonts"></i></a>
+                    <a onclick="editProductData(' . $categories->product_id . ')" role="button" href="#" class="btn btn-primary btn-sm"><i class="fa fa-edit bigfonts"></i></a>
+                    <a onclick="deleteProductData(' . $categories->product_id . ')" role="button" href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash-o bigfonts"></i></a>
                 </div>
                 ';
-                return $buttton;
-            })
-            ->rawColumns(['action'])
-            ->toJson();
-
+                    return $buttton;
+                })
+                ->rawColumns(['action'])
+                ->toJson();
+        } catch (\Exception $e) {
+            return view('errorpage.database_error');
+        }
     }
 
 
     public function showSubCat()
     {
+        try {
+            $ViewType = request()->input('ViewType');
 
-        $ViewType= request()->input('ViewType');
+            if ($ViewType == "SubCategorie") {
+                $Cat_id = request()->input('Cat_id');
 
-        if ($ViewType=="SubCategorie"){
-            $Cat_id = request()->input('Cat_id');
+                try {
+                    $categories_sub = DB::table('categories_sub')
+                        ->where('categories_id', $Cat_id)
+                        ->get();
+                    return json_encode($categories_sub);
+                } catch (\Exception $e) {
+                    DB::rollBack();
+                    return ["o_status_message" => $e->getMessage()];
+                }
 
-            try {
-                $categories_sub = DB::table('categories_sub')
-                    ->where('categories_id', $Cat_id)
-                    ->get();
-                return json_encode($categories_sub);
-            } catch (\Exception $e) {
-                DB::rollBack();
-                return ["o_status_message" => $e->getMessage()];
             }
-
+        } catch (\Exception $e) {
+            return view('errorpage.database_error');
         }
-
     }
 }

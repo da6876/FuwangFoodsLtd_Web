@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 22, 2021 at 06:06 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 7.3.31
+-- Generation Time: Jan 23, 2022 at 10:09 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -296,6 +296,32 @@ CREATE TABLE `order_info_dtl` (
   `update_info` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `order_info_dtl`
+--
+
+INSERT INTO `order_info_dtl` (`order_info_dtl_id`, `order_info_id`, `product_id`, `order_qnty`, `order_rate`, `order_amount`, `delivery_date`, `delivery_time`, `create_info`, `update_info`) VALUES
+(11990621, 11880044, 11660003, '6', '30', '30', '', '', '2021-10-24 17:07:32', NULL),
+(11990622, 11880044, 11660004, '4', '72', '72', '', '', '2021-10-24 17:07:32', NULL),
+(11990623, 11880044, 11660005, '3', '144', '144', '', '', '2021-10-24 17:07:32', NULL),
+(11990624, 11880044, 11660006, '9', '972', '972', '', '', '2021-10-24 17:07:32', NULL),
+(11990625, 11880045, 11660005, '10', '80', '80', '', '', '2021-10-24 17:09:46', NULL),
+(11990626, 11880045, 11660007, '5', '180', '180', '', '', '2021-10-24 17:09:46', NULL),
+(11990627, 11880045, 11660008, '15', '405', '405', '', '', '2021-10-24 17:09:46', NULL),
+(11990628, 11880045, 11660009, '20', '200', '200', '', '', '2021-10-24 17:09:46', NULL),
+(11990629, 11880046, 11660007, '2', '12', '12', '', '', '2021-10-24 17:10:45', NULL),
+(11990630, 11880046, 11660021, '6', '24', '24', '', '', '2021-10-24 17:10:45', NULL),
+(11990631, 11880046, 11660053, '2', '68', '68', '', '', '2021-10-24 17:10:45', NULL),
+(11990632, 11880047, 11660005, '2', '8', '8', '', '', '2022-01-04 11:39:04', NULL),
+(11990633, 11880047, 11660010, '1', '13', '13', '', '', '2022-01-04 11:39:04', NULL),
+(11990634, 11880047, 11660011, '2', '34', '34', '', '', '2022-01-04 11:39:04', NULL),
+(11990635, 11880048, 11660003, '10', '5', '5', '', '', '2022-01-04 11:56:22', NULL),
+(11990636, 11880048, 11660004, '10', '6', '6', '', '', '2022-01-04 11:56:23', NULL),
+(11990637, 11880048, 11660005, '10', '8', '8', '', '', '2022-01-04 11:56:23', NULL),
+(11990638, 11880048, 11660006, '10', '18', '18', '', '', '2022-01-04 11:56:23', NULL),
+(11990639, 11880049, 11660005, '5', '8', '8', '', '', '2022-01-04 11:57:42', NULL),
+(11990640, 11880049, 11660007, '5', '6', '6', '', '', '2022-01-04 11:57:42', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -321,8 +347,12 @@ CREATE TABLE `order_info_mst` (
 --
 
 INSERT INTO `order_info_mst` (`order_info_id`, `order_trck`, `db_point_id`, `db_point_image`, `user_info_id`, `order_date`, `order_time`, `latitude`, `longitude`, `create_info`, `update_info`) VALUES
-(11880000, 'ZYQWwceI6vP5mGXufdki_20211022184956', 11, 'C:xampphtdocsFuwangFoodsLtdpublicallImagesdb_point_order_image/11_DB_Point.jpg', 22, '22/10/2021', '06:15', '23.66666', '90.3333', '2021-10-22 18:49:56', NULL),
-(11880001, '2NZb7Ra0ZhcgfMiBWsUq_20211022185133', 11, 'C:xampphtdocsFuwangFoodsLtdpublicallImagesdb_point_order_image/11_DB_Point.jpg', 22, '22/10/2021', '06:15', '23.66666', '90.3333', '2021-10-22 18:51:33', NULL);
+(11880044, 'ItlwNKfXd8y6numnCbG2_20211024170732', 3, 'public/allImages/db_point_order_image/3_DB_Point_img_20211024_170732.jpg', 11220009, '2021-10-24', '11:57:42', '23.2222', '92.252222', '2021-10-24 17:07:32', NULL),
+(11880045, '9y1fmEWLqnG3M6MPT4vt_20211024170946', 3, 'public/allImages/db_point_order_image/3_DB_Point_img_20211024_170946.jpg', 11220009, '2021-10-23', '11:57:42', '23.2222', '92.252222', '2021-10-24 17:09:46', NULL),
+(11880046, 'bjTbfawud4HL2tkKT9pm_20211024171044', 3, 'public/allImages/db_point_order_image/3_DB_Point_img_20211024_171044.jpg', 11220009, '2021-10-24', '11:57:42', '23.2222', '92.252222', '2021-10-24 17:10:44', NULL),
+(11880047, 'tpGDShelL3Ifm1ElynJF_20220104113904', 3, 'public/allImages/db_point_order_image/3_DB_Point_img_20220104_113904.jpg', 11220009, '04/01/2022', '11:57:42', '23.2222', '92.252222', '2022-01-04 11:39:04', NULL),
+(11880048, 'KiMnU75MgOKrOz7hBOVc_20220104115622', 4, 'public/allImages/db_point_order_image/4_DB_Point_img_20220104_115622.jpg', 11220009, '04/01/2022', '11:57:42', '23.2222', '92.252222', '2022-01-04 11:56:22', NULL),
+(11880049, 'VIWaUqvXUcDFm49HheoB_20220104115742', 4, 'public/allImages/db_point_order_image/4_DB_Point_img_20220104_115742.jpg', 11220009, '04/01/2022', '11:57:42', '23.2222', '92.252222', '2022-01-04 11:57:42', NULL);
 
 -- --------------------------------------------------------
 
@@ -485,7 +515,9 @@ CREATE TABLE `product_stock` (
 INSERT INTO `product_stock` (`product_stock_id`, `batch_no`, `product_id`, `qnty`, `production_date`, `expiry_date`, `other_info`, `user_id`, `create_info`, `update_info`, `product_stock_status`) VALUES
 (11770000, 'SSKJ5555', 1122200, '500', '20/10/2021', '15/12/2021', 'N', 11220001, 'ADMIN', NULL, 'I'),
 (11770001, 'DFF1222', 11660002, '450', '10/10/2021', '12/10/2021', 'no Info', 11220001, '11220001', NULL, 'Active'),
-(11770002, 'DFF1200', 11660002, '500', '09/10/2021', '15/12/2021', 'No Indfo', 11220001, '11220001', NULL, 'Active');
+(11770002, 'DFF1200', 11660002, '500', '09/10/2021', '15/12/2021', 'No Indfo', 11220001, '11220001', NULL, 'Active'),
+(11770003, 'NGSSZ8MLAO0546Y', 11660003, '1', '01/11/2021', '01/11/2021', 'aaa', 11220001, '11220001', NULL, 'S'),
+(11770004, '60LYMSB3GPAKBLW', 11660026, '50', '04/01/2022', '04/01/2022', NULL, 11220001, '11220001', NULL, 'Active');
 
 -- --------------------------------------------------------
 
@@ -505,7 +537,8 @@ CREATE TABLE `product_type` (
 --
 
 INSERT INTO `product_type` (`product_type_id`, `product_type_name`, `product_type_status`, `create_info`) VALUES
-(11330000, 'New Product Type', 'A', '2021-10-03 13:31:47');
+(11330000, 'New Product Type', 'A', '2021-10-03 13:31:47'),
+(11330003, 'mmm', 'A', '2021-11-09 17:54:28');
 
 -- --------------------------------------------------------
 
@@ -6458,13 +6491,13 @@ ALTER TABLE `order_info`
 -- AUTO_INCREMENT for table `order_info_dtl`
 --
 ALTER TABLE `order_info_dtl`
-  MODIFY `order_info_dtl_id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11990000;
+  MODIFY `order_info_dtl_id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11990641;
 
 --
 -- AUTO_INCREMENT for table `order_info_mst`
 --
 ALTER TABLE `order_info_mst`
-  MODIFY `order_info_id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11880002;
+  MODIFY `order_info_id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11880050;
 
 --
 -- AUTO_INCREMENT for table `product_info`
@@ -6476,13 +6509,13 @@ ALTER TABLE `product_info`
 -- AUTO_INCREMENT for table `product_stock`
 --
 ALTER TABLE `product_stock`
-  MODIFY `product_stock_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11770003;
+  MODIFY `product_stock_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11770005;
 
 --
 -- AUTO_INCREMENT for table `product_type`
 --
 ALTER TABLE `product_type`
-  MODIFY `product_type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11330003;
+  MODIFY `product_type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11330004;
 
 --
 -- AUTO_INCREMENT for table `unions`
